@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brockport ACM SIGAI</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-    <div class="container-L">
-        <h1>Brockport ACM SIGAI</h1>
-        <div class="bio-box">
-            <p>The SUNY Brockport ACM SIGAI chapter, founded in Spring 2024, is part of the ACM Special Interest Group
-                on Artificial Intelligence (ACM SIGAI). The group provides a platform
-                for students and faculty to explore the latest advancements in AI research, foster collaboration, and
-                share innovative ideas. With a focus on academic growth and career preparation, SUNY Brockport ACM
-                SIGAI encourages members to participate in coding challenges, research projects, and networking
-                opportunities, aiming to shape the next generation of AI professionals.</p>
-        </div>
-
-        <hr>
-
-        <a href="https://discord.gg/xNxSCpynKX" class="discord-button">Join our Discord!</a>
-        <p>Share your projects, news, and research. Connect with fellow students for coding, interview resources,
-            Leetcode group sessions, and more!</p>
-
-    </div>
-    <div class="container-R">
-
-        <!--
-        Feel free to add links to your portfolio sites!
-        If you would like to add more to this site, create a folder with your name, 
-        and link to an html/css contained within your folder!
-        Avoid altering the main homepage css if possible.
-        -->
-
-        <div class="officer-box">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>Brockport ACM SIGAI</header>
+      <div class="wrapper">
+        <nav>
+          <button class="tab active" data-target="home">Home</button>
+          <button class="tab" data-target="members">Members</button>
+          <button class="tab" data-target="edually">EduAlly</button>
+        </nav>
+        <main>
+          <section id="home" class="content active">
+            <p>
+              The SUNY Brockport ACM SIGAI chapter, founded in Spring 2024, is
+              part of the ACM Special Interest Group on Artificial Intelligence
+              (ACM SIGAI). The group provides a platform for students and
+              faculty to explore the latest advancements in AI research, foster
+              collaboration, and share innovative ideas. With a focus on
+              academic growth and career preparation, SUNY Brockport ACM SIGAI
+              encourages members to participate in coding challenges, research
+              projects, and networking opportunities, aiming to shape the next
+              generation of AI professionals.
+            </p>
+            <hr />
+            <a href="https://discord.gg/xNxSCpynKX"
+              ><button>Join the Discord!</button></a
+            >
+            <p>
+              Share your projects, news, and research. Connect with fellow
+              students for coding, interview resources, and more!
+            </p>
+          </section>
+          <section id="members" class="content">
             <h2><em><u>Officers:</u></em></h2>
             <h3>Liam Davies</u></h3>
             <p><em>Chair</em></p>
@@ -57,15 +58,40 @@
 
             <h3>Nick Barbera</h3>
             <p><em>Treasurer</em></p>
-        </div>
         <hr>
         <h3><em><u>ACM Members:</u></em></h3>
         <h4>Trinity Thiele</h4>
         <h4>Jayden Asbie</h4>
         <h4>Ryan Fantigrossi</h4>
-
-        <a href="https://github.com/SUNY-Brockport-ACM-Student-Chapter" class="github-button">Github Organization</a>
+          </section>
+          <section id="edually" class="content">
+            <a href="https://github.com/SUNY-Brockport-ACM-Student-Chapter" class="github-button"><h1><u>Github Organization</u></h1></a>
+            <img src="./edually_login.png" width="500px">
+            <img src="./edually_screen.png" width="500px">
+            <img src="./edually_test.png" width="500px">
+          </section>
+        </main>
+      </div>
     </div>
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelector(".tab[data-target='home']")
+          .classList.add("active");
+      });
 
+      document.querySelectorAll(".tab").forEach((button) => {
+        button.addEventListener("click", function () {
+          document
+            .querySelectorAll(".tab")
+            .forEach((btn) => btn.classList.remove("active"));
+          this.classList.add("active");
+          document
+            .querySelectorAll(".content")
+            .forEach((sec) => sec.classList.remove("active"));
+          document.getElementById(this.dataset.target).classList.add("active");
+        });
+      });
+    </script>
+  </body>
 </html>
