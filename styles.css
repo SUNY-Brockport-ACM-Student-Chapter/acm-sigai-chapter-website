@@ -9,6 +9,7 @@
     --gray-D: rgb(150, 150, 150);
     --gradient-green: linear-gradient(to bottom, var(--green-L), var(--green-base), var(--green-D));
     --gradient-grayL: linear-gradient(to bottom, var(--gray-L), var(--gray-base));
+    --gradient-grayD: linear-gradient(to bottom, var(--gray-base) 50%, var(--gray-D));
     --border-radius: 25px;
     --box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
     --font-default: "Inter", sans-serif;
@@ -16,15 +17,7 @@
 
 body {
     font-family: var(--font-default);
-    background-image: repeating-linear-gradient(
-        -45deg,
-        var(--gray-D),
-        var(--gray-D) 1rem,
-        var(--gray-base) 1rem,
-        var(--gray-base) 2rem
-    );
-    background-size: 150vw 150vh;
-    animation: barberpole 100s linear infinite;
+    background: var(--gradient-grayD);
     margin: 0;
     padding: 0;
     display: flex;
@@ -40,13 +33,6 @@ a {
 
 h3 {
   margin-block: 5px;
-}
-
-@keyframes barberpole {
-    100% {
-        background-position: 100% 100%;
-        backdrop-filter: blur(5px);
-    }
 }
 
 .container {
@@ -86,6 +72,7 @@ nav {
 }
 
 button {
+    background-color: var(--green-base);
     background: var(--gradient-green);
     border: none;
     font-size: 1.5rem;
@@ -101,7 +88,9 @@ button {
 }
 
 button.active, button:hover {
+    background-color: var(--green-base);
     background: var(--green-D);
+    transition: 0.1s;
 }
 
 main {
