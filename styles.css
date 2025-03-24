@@ -15,15 +15,21 @@
     --font-default: "Inter", sans-serif;
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     font-family: var(--font-default);
     background: var(--gradient-grayD);
+    background-repeat: repeat-y;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow-y: scroll;
 }
 
 a {
@@ -58,6 +64,7 @@ header {
 .wrapper {
     display: flex;
     flex-grow: 1;
+    max-height: calc(100% - (2rem + 40px + 20px));
 }
 
 nav {
@@ -96,7 +103,6 @@ button.active, button:hover {
 main {
     flex-grow: 1;
     background: var(--gray-L);
-    padding: 20px;
     border-radius: 5px 5px var(--border-radius) 5px;
     display: flex;
     flex-direction: column;
@@ -104,7 +110,9 @@ main {
     align-items: center;
     text-align: center;
     text-wrap: wrap;
+    padding: 20px;
     padding-inline: 100px;
+    overflow-y: scroll;
 }
 
 img {
